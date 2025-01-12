@@ -4,6 +4,16 @@ import { useState } from "react";
 const TopNav = () =>{
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
+    const [menuDropdown, setMenuDropdown] = useState(false);
+
+    const menuDropdownTrue = ()=>{
+        setMenuDropdown(true);
+    }
+
+    const menuDropdownFalse = ()=>{
+        setMenuDropdown(false);
+    }
+
     const DropdownTrue = () =>{
         setIsDropdownVisible(true)
     }
@@ -17,7 +27,7 @@ const TopNav = () =>{
 
             {/* logo */}
             <div>
-                <img src="/images/Nav/flipkart.svg" alt="" />
+                <img src="/images/Nav/flipkart.svg" alt="img" />
             </div>
 
             {/* search box */}
@@ -91,8 +101,33 @@ const TopNav = () =>{
                     <img className="h-5 w-5" src="/images/Nav/Store.png" alt = "seller" />
                     <h2 className="hidden [@media(min-width:1200px)]:flex">Become a Seller</h2>
                 </button>
-                <div className="md:flex hidden">
-                    <img src="/images/Nav/Menu.svg" alt="" />
+
+                <div className="relative">
+                    <div className={`${menuDropdown? ' bg-slate-50':' border-white'} border md:flex rounded-md p-[0.35rem]`}
+                    onMouseEnter={menuDropdownTrue}
+                    onMouseLeave={menuDropdownFalse}>
+                        <img src="/images/Nav/Menu.svg" alt="img" />
+                    </div>
+                    <div className={`${menuDropdown?'':'hidden'} w-[17rem] flex flex-col rounded-b-lg shadow-lg rounded-t-sm z-10 absolute right-0  bg-white  border `}
+                    onMouseEnter={menuDropdownTrue}
+                    onMouseLeave={menuDropdownFalse}>
+                            <div className="flex hover:bg-slate-50 py-2 pl-5  items-center  gap-5">
+                                <img className="h-4" src="/images/Nav/Menu/Notifications.svg" alt="img" />
+                                <p className="text-[0.9rem]">Notification Preferences</p>
+                            </div>
+                            <div className="flex hover:bg-slate-50 py-2 pl-5  gap-5">
+                                <img className="h-4" src="/images/Nav/Menu/helpcenter.svg" alt="img" />
+                                <p className="text-[0.9rem]">24x7 Customer Care</p>
+                            </div>
+                            <div className="flex hover:bg-slate-50 py-2 pl-5  gap-5">
+                                <img className="h-4" src="/images/Nav/Menu/advertise.svg" alt="img" />
+                                <p className="text-[0.9rem]">Advertise</p>
+                            </div>
+                            <div className="flex hover:bg-slate-50 py-2 pl-5  gap-5">
+                                <img className="h-4" src="/images/Nav/Menu/downloadApp.svg" alt="img" />
+                                <p className="text-[0.9rem]">Download App</p>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>

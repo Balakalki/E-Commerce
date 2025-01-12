@@ -3,8 +3,8 @@
 const ProductCard = ({image, content, heading}) =>{
     return(
         <>
-            <div className="flex bg-white border flex-col justify-center p-3 gap-2 rounded-md">
-                <div className="h-32">
+            <div className="flex shrink-0 w-[13.5rem]  bg-white border flex-col justify-center p-3 gap-2 rounded-md">
+                <div className="h-48 w-48 hover:scale-110">
                     <img className="h-full w-full" src={image} alt="" />
                 </div>
                 <div className="">
@@ -17,4 +17,5 @@ const ProductCard = ({image, content, heading}) =>{
     )
 }
 
+export const width = 13.5;
 export default ProductCard
